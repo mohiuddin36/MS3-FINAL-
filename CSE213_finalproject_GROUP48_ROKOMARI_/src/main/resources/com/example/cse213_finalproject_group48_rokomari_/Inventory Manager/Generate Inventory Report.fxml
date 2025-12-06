@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <TextField layoutX="92.0" layoutY="54.0" prefHeight="329.0" prefWidth="408.0" />
+      <Button layoutX="204.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="189.0" text="generate report" />
+      <TextArea layoutX="153.0" layoutY="138.0" prefHeight="130.0" prefWidth="295.0" />
+      <Label layoutX="104.0" layoutY="354.0" prefHeight="17.0" prefWidth="128.0" text="reportReadyLabel" />
+      <Label layoutX="369.0" layoutY="350.0" prefHeight="17.0" prefWidth="115.0" text="accessDeniedLabel" />
+      <Button layoutX="116.0" layoutY="303.0" mnemonicParsing="false" text="download" />
+      <ProgressIndicator layoutX="334.0" layoutY="283.0" prefHeight="40.0" prefWidth="48.0" progress="0.0" />
+      <Label layoutX="369.0" layoutY="289.0" prefHeight="17.0" prefWidth="137.0" text="loadingReportIndicator" />
+   </children>
+</AnchorPane>
