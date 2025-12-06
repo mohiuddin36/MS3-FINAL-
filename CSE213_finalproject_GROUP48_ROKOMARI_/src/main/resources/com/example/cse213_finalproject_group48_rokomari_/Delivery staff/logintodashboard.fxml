@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="369.0" prefWidth="487.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.Deliverystaff.logintodashboard">
+   <children>
+      <Label layoutX="53.0" layoutY="12.0" prefHeight="42.0" prefWidth="489.0" text="Delivery Staff Log In">
+         <font>
+            <Font name="System Bold Italic" size="29.0" />
+         </font></Label>
+      <TextField layoutX="86.0" layoutY="75.0" prefHeight="10.0" prefWidth="147.0" />
+      <TextField layoutX="85.0" layoutY="127.0" prefHeight="0.0" prefWidth="150.0" />
+      <Label layoutX="11.0" layoutY="123.0" prefHeight="26.0" prefWidth="70.0" text="Password" />
+      <Button layoutX="134.0" layoutY="168.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="52.0" text="Login" />
+      <Label layoutX="10.0" layoutY="71.0" prefHeight="26.0" prefWidth="70.0" text="User Id" />
+      <Label layoutX="67.0" layoutY="221.0" prefHeight="54.0" prefWidth="217.0" text="System validates credentials">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="346.0" layoutY="301.0" prefHeight="54.0" prefWidth="150.0" text="Displays Dashboard">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

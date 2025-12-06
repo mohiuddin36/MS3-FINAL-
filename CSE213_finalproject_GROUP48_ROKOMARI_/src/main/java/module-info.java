@@ -9,4 +9,6 @@ module com.example.cse213_finalproject_group48_rokomari_ {
     opens com.example.cse213_finalproject_group48_rokomari_.Seller to javafx.fxml;
     exports com.example.cse213_finalproject_group48_rokomari_.seller;
     opens com.example.cse213_finalproject_group48_rokomari_.seller to javafx.fxml;
+    exports com.example.cse213_finalproject_group48_rokomari_.Deliverystaff;
+    opens com.example.cse213_finalproject_group48_rokomari_.Deliverystaff to javafx.fxml;
 }
