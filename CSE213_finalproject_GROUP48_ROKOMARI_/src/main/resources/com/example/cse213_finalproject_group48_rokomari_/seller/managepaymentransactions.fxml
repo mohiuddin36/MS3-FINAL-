@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.seller.managepaymentrasactions">
    <children>
       <Label layoutX="17.0" layoutY="5.0" prefHeight="62.0" prefWidth="560.0" text=" Manage Payment Transactions workflow">
@@ -17,20 +16,20 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Button layoutX="25.0" layoutY="67.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="130.0" text="payment">
+      <Button fx:id="paymentButton" layoutX="25.0" layoutY="67.0" mnemonicParsing="false" onAction="#handleRequestPayout" prefHeight="43.0" prefWidth="130.0" text="payment">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Button>
-      <TableView layoutX="14.0" layoutY="176.0" prefHeight="200.0" prefWidth="260.0">
+      <TableView fx:id="paymentsTable" layoutX="14.0" layoutY="176.0" prefHeight="200.0" prefWidth="260.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Month" />
-          <TableColumn prefWidth="75.0" text="Total sales" />
-            <TableColumn prefWidth="108.79998779296875" text="Number of orders" />
+          <TableColumn fx:id="monthColumn" prefWidth="75.0" text="Month" />
+          <TableColumn fx:id="totalSalesColumn" prefWidth="75.0" text="Total sales" />
+            <TableColumn fx:id="ordersColumn" prefWidth="108.79998779296875" text="Number of orders" />
         </columns>
       </TableView>
-      <Button layoutX="279.0" layoutY="276.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" text="Request pay Out" />
-      <Label layoutX="281.0" layoutY="337.0" prefHeight="34.0" prefWidth="193.0" text="Display Payout Confirmation">
+      <Button fx:id="requestPayoutButton" layoutX="279.0" layoutY="276.0" mnemonicParsing="false" onAction="#handleRequestPayout" prefHeight="33.0" prefWidth="105.0" text="Request pay Out" />
+      <Label fx:id="payoutConfirmationLabel" layoutX="281.0" layoutY="337.0" prefHeight="34.0" prefWidth="193.0" text="Display Payout Confirmation">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

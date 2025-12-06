@@ -1,186 +1,163 @@
+
 package com.example.cse213_finalproject_group48_rokomari_.seller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
-import javafx.event.ActionEvent;
+        import javafx.event.ActionEvent;
 
-import java.awt.print.Book;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.math.BigDecimal;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
-public class updatebookinformation
-{
+public class updatebookinformation {
 
-    @FXML private TableView<Book> bookTable;
-    @FXML private TableColumn<Book,String> colTitle;
-    @FXML private TableColumn<Book,String> colAuthor;
-    @FXML private TableColumn<Book,BigDecimal> colPrice;
+    @FXML private Label headerLabel;
+    @FXML private Label statusLabel;
 
     @FXML private TextField titleField;
     @FXML private TextField authorField;
     @FXML private TextField priceField;
     @FXML private TextField stockField;
-    @FXML private TextArea descriptionArea;
-    @FXML private ImageView coverImageView;
-    @FXML private ComboBox<String> statusBox;
-    @FXML private Label messageLabel;
-    @FXML private Button saveButton;
 
-    private File coverFile;
-    private Book selectedBook; // domain object
+    @FXML private Button updateButton;
+    @FXML private Button cancelButton;
 
-    // example in-memory list (replace with your service)
-    private ObservableList<Book> books = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        // prepare table columns (assumes Book has getters)
-        colTitle.setCellValueFactory(cell -> cell.getValue().titleProperty());
-        colAuthor.setCellValueFactory(cell -> cell.getValue().authorProperty());
-        colPrice.setCellValueFactory(cell -> cell.getValue().priceProperty().asObject());
-
-        bookTable.setItems(books);
-
-        // populate status choices
-        statusBox.setItems(FXCollections.observableArrayList("AVAILABLE","OUT_OF_STOCK","PENDING_APPROVAL"));
-
-        // numeric constraints
-        priceField.textProperty().addListener((obs,oldVal,newVal) -> {
-            if (!newVal.matches("\\d*(\\.\\d{0,2})?")) priceField.setText(oldVal);
-        });
-        stockField.textProperty().addListener((obs,oldVal,newVal) -> {
-            if (!newVal.matches("\\d*")) stockField.setText(oldVal);
-        });
-
-        // initially disable save until a book is selected
-        saveButton.setDisable(true);
-
-        // Example: load sample data (replace with your backend call)
-        loadSampleData();
+        // Initialize UI state
+        clearStatus();
+        // Optionally, you could load existing book data here if an ID is passed in the scene
     }
 
-    private void loadSampleData() {
-        books.addAll(
-                new Book(1, "1984", "George Orwell", new BigDecimal("9.99"), 12, "Dystopia", "AVAILABLE", null),
-                new Book(2, "Clean Code", "Robert C. Martin", new BigDecimal("29.99"), 5, "Software craft", "AVAILABLE", null)
-        );
-    }
 
     @FXML
-    private void handleSelectBook() {
-        selectedBook = bookTable.getSelectionModel().getSelectedItem();
-        if (selectedBook != null) {
-            populateForm(selectedBook);
-            saveButton.setDisable(false);
-            messageLabel.setText("");
-        }
-    }
+    private void handleUpdate(ActionEvent event) {
+        clearStatus();
 
-    private void populateForm(Book book) {
-        titleField.setText(book.getTitle());
-        authorField.setText(book.getAuthor());
-        priceField.setText(book.getPrice().toPlainString());
-        stockField.setText(String.valueOf(book.getStock()));
-        descriptionArea.setText(book.getDescription());
-        statusBox.getSelectionModel().select(book.getStatus());
-        if (book.getCoverPath() != null) {
-            try {
-                Image img = new Image(new FileInputStream(new File(book.getCoverPath())));
-                coverImageView.setImage(img);
-            } catch (FileNotFoundException e) {
-                coverImageView.setImage(null);
+        String title = safeTrim(titleField.getText());
+        String author = safeTrim(authorField.getText());
+        String priceText = safeTrim(priceField.getText());
+        String stockText = safeTrim(stockField.getText());
+
+        // Basic validation
+        if (title.isEmpty()) {
+            showError("Title cannot be empty.");
+            return;
+        }
+        if (author.isEmpty()) {
+            showError("Author cannot be empty.");
+            return;
+        }
+        double price;
+        try {
+            price = Double.parseDouble(priceText);
+            if (price < 0) {
+                showError("Price must be zero or positive.");
+                return;
             }
-        } else {
-            coverImageView.setImage(null);
-        }
-    }
-
-
-    @FXML
-    private void handleSave(ActionEvent event) {
-        if (selectedBook == null) {
-            messageLabel.setText("No book selected.");
+        } catch (NumberFormatException e) {
+            showError("Invalid price. Use a numeric value (e.g. 199.99).");
             return;
         }
 
-        String title = titleField.getText().trim();
-        String author = authorField.getText().trim();
-        String priceText = priceField.getText().trim();
-        String stockText = stockField.getText().trim();
-        String description = descriptionArea.getText().trim();
-        String status = statusBox.getSelectionModel().getSelectedItem();
-
-        if (title.isEmpty() || author.isEmpty() || priceText.isEmpty() || stockText.isEmpty()) {
-            messageLabel.setText("Please fill Title, Author, Price and Stock.");
-            return;
-        }
-
-        BigDecimal price;
         int stock;
         try {
-            price = new BigDecimal(priceText);
-            if (price.compareTo(BigDecimal.ZERO) < 0) throw new NumberFormatException();
-        } catch (Exception e) {
-            messageLabel.setText("Enter valid price.");
-            return;
-        }
-
-        try {
             stock = Integer.parseInt(stockText);
-            if (stock < 0) throw new NumberFormatException();
-        } catch (Exception e) {
-            messageLabel.setText("Enter valid stock.");
+            if (stock < 0) {
+                showError("Stock must be zero or positive.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            showError("Invalid stock. Use an integer value (e.g. 10).");
             return;
         }
 
-        // Update the selectedBook object
-        selectedBook.setTitle(title);
-        selectedBook.setAuthor(author);
-        selectedBook.setPrice(price);
-        selectedBook.setStock(stock);
-        selectedBook.setDescription(description);
-        selectedBook.setStatus(status);
+        // Disable update button to prevent duplicate clicks (UI responsiveness)
+        updateButton.setDisable(true);
 
-        // If coverFile != null, upload it to server or set path
-        if (coverFile != null) {
-            // TODO: upload to server or copy locally, set selectedBook.setCoverPath(...)
-            selectedBook.setCoverPath(coverFile.getAbsolutePath());
+        // Perform update (replace performUpdate with a real DB/API call)
+        boolean ok = performUpdate(title, author, price, stock);
+
+        // Re-enable button
+        updateButton.setDisable(false);
+
+        if (ok) {
+            showSuccess("Book information updated successfully.");
+            // Optionally clear or reset fields:
+            // clearForm();
+        } else {
+            showError("Failed to update book information. Try again later.");
         }
-
-        // TODO: call service to persist changes (DB or REST)
-        // bookService.updateBook(selectedBook);
-
-        // refresh table view
-        bookTable.refresh();
-
-        messageLabel.setText("Book updated successfully.");
     }
+
 
     @FXML
     private void handleCancel(ActionEvent event) {
         clearForm();
-        messageLabel.setText("Edit cancelled.");
-        saveButton.setDisable(true);
-        bookTable.getSelectionModel().clearSelection();
-        selectedBook = null;
+        clearStatus();
+        // If this view is a dialog, you may want to close the window instead.
+        // Example (if you have the Stage): ((Stage)cancelButton.getScene().getWindow()).close();
+    }
+
+
+    private boolean performUpdate(String title, String author, double price, int stock) {
+        try {
+            // TODO: call your service / API / DAO here to update the book record.
+            // Example pseudo-code:
+            // Book book = new Book(title, author, price, stock);
+            // bookDao.update(book);
+            //
+            // For skeleton/demo purposes we simulate success:
+            Thread.sleep(120); // simulate small delay (remove in real implementation)
+            return true;
+        } catch (Exception ex) {
+            // Log exception in real app
+            return false;
+        }
+    }
+
+    /* -------------------- Helper methods -------------------- */
+
+    private void showError(String msg) {
+        if (statusLabel != null) {
+            statusLabel.setStyle("-fx-text-fill: red;");
+            statusLabel.setText(msg);
+        } else {
+            // fallback: show an alert
+            showAlert(Alert.AlertType.ERROR, "Validation error", msg);
+        }
+    }
+
+    private void showSuccess(String msg) {
+        if (statusLabel != null) {
+            statusLabel.setStyle("-fx-text-fill: green;");
+            statusLabel.setText(msg);
+        } else {
+            showAlert(Alert.AlertType.INFORMATION, "Success", msg);
+        }
+    }
+
+    private void clearStatus() {
+        if (statusLabel != null) {
+            statusLabel.setText("");
+            statusLabel.setStyle("");
+        }
     }
 
     private void clearForm() {
-        titleField.clear();
-        authorField.clear();
-        priceField.clear();
-        stockField.clear();
-        descriptionArea.clear();
-        coverImageView.setImage(null);
-        statusBox.getSelectionModel().clearSelection();
-        coverFile = null;
+        if (titleField != null) titleField.clear();
+        if (authorField != null) authorField.clear();
+        if (priceField != null) priceField.clear();
+        if (stockField != null) stockField.clear();
+    }
+
+    private String safeTrim(String s) {
+        return s == null ? "" : s.trim();
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String body) {
+        Alert a = new Alert(type);
+        a.setTitle(title);
+        a.setHeaderText(null);
+        a.setContentText(body);
+        a.showAndWait();
     }
 }
