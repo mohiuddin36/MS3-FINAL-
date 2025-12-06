@@ -1,6 +1,7 @@
 module com.example.cse213_finalproject_group48_rokomari_ {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.example.cse213_finalproject_group48_rokomari_ to javafx.fxml;
