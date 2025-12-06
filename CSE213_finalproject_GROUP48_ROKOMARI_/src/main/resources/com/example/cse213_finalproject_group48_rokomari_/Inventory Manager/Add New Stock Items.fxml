@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.InventoryManager.AddNewStockItems  ">
+   <children>
+      <TextField fx:id="titleTextfield" layoutX="83.0" layoutY="97.0" prefHeight="25.0" prefWidth="364.0" />
+      <Label fx:id="titlelabel" layoutX="54.0" layoutY="101.0" prefHeight="17.0" prefWidth="42.0" text="title" />
+      <Label fx:id="addnewitemlabel" layoutX="241.0" layoutY="49.0" prefHeight="17.0" prefWidth="119.0" text="Add New Stock Item" />
+      <TextField fx:id="authorTextfield" layoutX="83.0" layoutY="137.0" prefHeight="25.0" prefWidth="364.0" />
+      <TextField fx:id="quantityTextfield" layoutX="83.0" layoutY="179.0" prefHeight="25.0" prefWidth="364.0" />
+      <TextField fx:id="priceTextfield" layoutX="83.0" layoutY="220.0" prefHeight="25.0" prefWidth="364.0" />
+      <Label fx:id="authorlabel" layoutX="42.0" layoutY="141.0" prefHeight="17.0" prefWidth="42.0" text="author" />
+      <Label fx:id="quantitylabel" layoutX="37.0" layoutY="183.0" prefHeight="17.0" prefWidth="51.0" text="quantity" />
+      <Label fx:id="pricelabel" layoutX="45.0" layoutY="224.0" prefHeight="17.0" prefWidth="35.0" text="price" />
+      <Button layoutX="84.0" layoutY="311.0" mnemonicParsing="false" onAction="#saveiteambutton" text="save item" />
+      <Button layoutX="244.0" layoutY="311.0" mnemonicParsing="false" onAction="#clearbutton" text="clear" />
+      <Button layoutX="406.0" layoutY="311.0" mnemonicParsing="false" onAction="#backbutton" text="back" />
+   </children>
+</AnchorPane>
