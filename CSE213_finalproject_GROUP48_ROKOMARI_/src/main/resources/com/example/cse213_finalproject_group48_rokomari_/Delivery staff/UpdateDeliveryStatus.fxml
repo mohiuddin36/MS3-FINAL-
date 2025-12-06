@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.cse213_finalproject_group48_rokomari_.Deliverystaff.UpdateDeliveryStatus"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.Deliverystaff.UpdateDeliveryStatus">
+   <children>
+      <Label layoutX="43.0" layoutY="15.0" prefHeight="28.0" prefWidth="350.0" text="Update Delivery Status">
+         <font>
+            <Font name="System Bold Italic" size="22.0" />
+         </font></Label>
+      <TableView layoutX="74.0" layoutY="70.0" prefHeight="200.0" prefWidth="238.0">
+        <columns>
+          <TableColumn prefWidth="93.19998931884766" text="coustomer " />
+          <TableColumn prefWidth="57.199981689453125" text="Order Id " />
+            <TableColumn prefWidth="85.199951171875" text="Status" />
+        </columns>
+      </TableView>
+      <ComboBox layoutX="382.0" layoutY="87.0" prefHeight="18.0" prefWidth="150.0" />
+      <Button layoutX="382.0" layoutY="130.0" mnemonicParsing="false" text="Button" />
+      <Label layoutX="382.0" layoutY="51.0" prefHeight="18.0" prefWidth="105.0" text="New Status">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font></Label>
+      <Label layoutX="340.0" layoutY="200.0" prefHeight="31.0" prefWidth="238.0" text="Status Update Sucessfully">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Label>
+   </children>
 </AnchorPane>
