@@ -6,16 +6,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.Deliverystaff.ConfirmDelivery">
    <children>
-      <Label layoutX="32.0" layoutY="24.0" prefHeight="57.0" prefWidth="508.0" text="Confirm Delivery">
+      <Label fx:id="statuslabel" layoutX="32.0" layoutY="24.0" prefHeight="57.0" prefWidth="508.0" text="Confirm Delivery">
          <font>
             <Font name="System Bold Italic" size="23.0" />
          </font></Label>
       <Label layoutX="32.0" layoutY="100.0" prefHeight="18.0" prefWidth="84.0" text="Recipient Name" />
-      <TextField layoutX="24.0" layoutY="138.0" prefHeight="18.0" prefWidth="150.0" />
+      <TextField fx:id="recipientNameField" layoutX="24.0" layoutY="138.0" prefHeight="18.0" prefWidth="150.0" />
       <Label layoutX="32.0" layoutY="172.0" text="Order Id" />
       <Label layoutX="33.0" layoutY="232.0" prefHeight="26.0" prefWidth="116.0" text="Digital Signature" />
-      <TextField layoutX="32.0" layoutY="200.0" />
-      <TextField layoutX="34.0" layoutY="263.0" prefHeight="26.0" prefWidth="162.0" />
-      <Button layoutX="38.0" layoutY="327.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="109.0" text="Confirm Delivery" />
+      <TextField fx:id="orderIdField" layoutX="32.0" layoutY="200.0" />
+      <TextField fx:id="digitalSignatureField" layoutX="34.0" layoutY="263.0" prefHeight="26.0" prefWidth="162.0" />
+      <Button layoutX="38.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleConfirmDelivery" prefHeight="38.0" prefWidth="109.0" text="Confirm Delivery" />
    </children>
 </AnchorPane>

@@ -4,8 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="491.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.seller.handlecoutomerorder
-">
+<AnchorPane prefHeight="491.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.seller.handlecoutomerorder ">
    <children>
       <AnchorPane layoutX="81.0" layoutY="30.0" prefHeight="426.0" prefWidth="514.0">
          <children>
@@ -18,11 +17,11 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Label>
-            <TableView layoutX="95.0" layoutY="103.0" prefHeight="182.0" prefWidth="303.0">
+            <TableView fx:id="orderTable" layoutX="95.0" layoutY="103.0" prefHeight="182.0" prefWidth="303.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Product" />
-                <TableColumn prefWidth="75.0" text="Quantity" />
-                  <TableColumn prefWidth="75.0" text="stock" />
+                <TableColumn fx:id="productColumn" prefWidth="75.0" text="Product" />
+                <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" />
+                  <TableColumn fx:id="stock" prefWidth="75.0" text="stock" />
                   <TableColumn prefWidth="75.0" text="price" />
               </columns>
             </TableView>
@@ -31,8 +30,8 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Button layoutX="87.0" layoutY="332.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="118.0" text="Accept" />
-            <Button layoutX="221.0" layoutY="331.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Reject" />
+            <Button layoutX="87.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleaccept" prefHeight="12.0" prefWidth="118.0" text="Accept" />
+            <Button layoutX="221.0" layoutY="331.0" mnemonicParsing="false" onAction="#handlereject" prefHeight="26.0" prefWidth="118.0" text="Reject" />
             <Label layoutX="138.0" layoutY="379.0" prefHeight="26.0" prefWidth="166.0" text="Order Status Updated">
                <font>
                   <Font name="System Italic" size="12.0" />

@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse213_finalproject_group48_rokomari_.Deliverystaff.ViewAssingedOrder">
    <children>
       <Label layoutX="67.0" layoutY="23.0" prefHeight="44.0" prefWidth="441.0" text="View Assigned Order">
@@ -12,14 +11,14 @@
             <Font name="System Bold Italic" size="35.0" />
          </font>
       </Label>
-      <Button layoutX="23.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="My Order" />
+      <Button layoutX="23.0" layoutY="90.0" mnemonicParsing="false" onAction="#onmyorderclick" prefHeight="25.0" prefWidth="108.0" text="My Order" />
       <Label layoutX="24.0" layoutY="145.0" prefHeight="44.0" prefWidth="262.0" text="System Load Assigned Order" />
-      <TableView layoutX="32.0" layoutY="195.0" prefHeight="102.0" prefWidth="365.0">
+      <TableView fx:id="orderstable" layoutX="32.0" layoutY="195.0" prefHeight="102.0" prefWidth="365.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Order Id" />
-          <TableColumn prefWidth="116.0" text="Coustomer Name" />
-            <TableColumn prefWidth="75.0" text="Adress" />
-            <TableColumn prefWidth="98.0" text="Status" />
+          <TableColumn fx:id="orderidcol" prefWidth="75.0" text="Order Id" />
+          <TableColumn fx:id="coustomernamecol" prefWidth="116.0" text="Coustomer Name" />
+            <TableColumn fx:id="adresscol" prefWidth="75.0" text="Adress" />
+            <TableColumn fx:id="statuscol" prefWidth="98.0" text="Status" />
         </columns>
       </TableView>
       <Label layoutX="431.0" layoutY="302.0" prefHeight="44.0" prefWidth="152.0" text="Displays order list" textFill="#bf5829">
