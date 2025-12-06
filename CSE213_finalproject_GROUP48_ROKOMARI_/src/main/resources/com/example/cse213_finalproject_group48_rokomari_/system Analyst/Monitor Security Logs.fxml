@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="562.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <TextField layoutX="202.0" layoutY="52.0" prefHeight="42.0" prefWidth="274.0" />
+      <Label layoutX="298.0" layoutY="65.0" prefHeight="17.0" prefWidth="94.0" text="security logs" />
+      <TextField layoutX="199.0" layoutY="121.0" prefHeight="359.0" prefWidth="274.0" />
+      <ProgressIndicator layoutX="222.0" layoutY="194.0" progress="0.0" />
+      <Label layoutX="213.0" layoutY="163.0" text="system retrieving log data" />
+      <Label layoutX="270.0" layoutY="199.0" text="authentication validation message" />
+      <TableView layoutX="208.0" layoutY="279.0" prefHeight="131.0" prefWidth="257.0">
+        <columns>
+          <TableColumn prefWidth="53.0" text="time" />
+          <TableColumn prefWidth="58.0" text="user" />
+            <TableColumn prefWidth="68.0" text="action" />
+            <TableColumn prefWidth="77.0" text="status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <TitledPane animated="false" layoutX="199.0" layoutY="27.0" prefHeight="101.0" prefWidth="202.0" text="top container">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="62.0" layoutY="21.0" prefHeight="17.0" prefWidth="57.0" text="error log" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TextField layoutX="57.0" layoutY="175.0" prefHeight="122.0" prefWidth="528.0" />
+      <ChoiceBox layoutX="65.0" layoutY="206.0" prefWidth="150.0" />
+      <Label layoutX="83.0" layoutY="211.0" prefHeight="17.0" prefWidth="60.0" text="serverity" />
+      <DatePicker layoutX="231.0" layoutY="207.0" prefHeight="25.0" prefWidth="101.0" />
+      <DatePicker layoutX="345.0" layoutY="207.0" prefHeight="25.0" prefWidth="121.0" />
+      <Button layoutX="478.0" layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="apply filter" />
+      <ProgressIndicator layoutX="83.0" layoutY="249.0" progress="0.0" />
+      <Label layoutX="241.0" layoutY="211.0" text="for date" />
+      <Label layoutX="367.0" layoutY="210.0" text="to date" />
+      <TableView layoutX="58.0" layoutY="327.0" prefHeight="77.0" prefWidth="528.0">
+        <columns>
+          <TableColumn prefWidth="117.0" text="date" />
+          <TableColumn prefWidth="139.0" text="serverity" />
+            <TableColumn prefWidth="151.0" text="message" />
+            <TableColumn prefWidth="120.0" text="source" />
+        </columns>
+      </TableView>
+      <Label layoutX="304.0" layoutY="303.0" text="tableview" />
+   </children>
+</AnchorPane>

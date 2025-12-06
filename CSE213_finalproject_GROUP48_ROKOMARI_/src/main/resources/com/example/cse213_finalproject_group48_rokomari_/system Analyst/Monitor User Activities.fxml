@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="498.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <TextField layoutX="129.0" layoutY="56.0" prefHeight="68.0" prefWidth="393.0" />
+      <ToolBar layoutX="-338.0" layoutY="118.0" prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button mnemonicParsing="false" text="Button" />
+        </items>
+      </ToolBar>
+      <Button layoutX="300.0" layoutY="90.0" mnemonicParsing="false" text="user activity" />
+      <Label layoutX="312.0" layoutY="65.0" text="border line" />
+      <TextArea layoutX="132.0" layoutY="138.0" prefHeight="96.0" prefWidth="393.0" />
+      <Label layoutX="306.0" layoutY="149.0" text="Processing box" />
+      <ProgressIndicator layoutX="168.0" layoutY="171.0" progress="0.0" />
+      <TableView layoutX="134.0" layoutY="260.0" prefHeight="119.0" prefWidth="393.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="user" />
+          <TableColumn prefWidth="99.0" text="timestamp" />
+            <TableColumn prefWidth="91.0" text="event" />
+            <TableColumn prefWidth="127.0" text="details" />
+        </columns>
+      </TableView>
+      <TableView layoutX="134.0" layoutY="395.0" prefHeight="84.0" prefWidth="393.0">
+        <columns>
+          <TableColumn prefWidth="392.0" text="table view" />
+        </columns>
+      </TableView>
+      <Label layoutX="358.0" layoutY="186.0" prefHeight="17.0" prefWidth="155.0" text="access verified" />
+   </children>
+</AnchorPane>

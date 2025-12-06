@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <TextField layoutX="31.0" layoutY="56.0" prefHeight="127.0" prefWidth="149.0" />
+      <Label layoutX="71.0" layoutY="69.0" prefHeight="17.0" prefWidth="93.0" text="boarder pane" />
+      <Button layoutX="80.0" layoutY="137.0" mnemonicParsing="false" text="Button" />
+      <TextField layoutX="215.0" layoutY="57.0" prefHeight="142.0" prefWidth="362.0" />
+      <TableView layoutX="236.0" layoutY="104.0" prefHeight="61.0" prefWidth="327.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="id" />
+          <TableColumn prefWidth="75.0" text="name" />
+            <TableColumn prefWidth="75.0" text="stock" />
+            <TableColumn prefWidth="75.0" text="status" />
+        </columns>
+      </TableView>
+      <Label layoutX="359.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="tableview" />
+      <Label layoutX="353.0" layoutY="175.0" text="missing data" />
+      <TextField layoutX="256.0" layoutY="228.0" prefHeight="142.0" prefWidth="283.0" />
+      <TextArea layoutX="256.0" layoutY="228.0" prefHeight="45.0" prefWidth="283.0" />
+      <Label layoutX="372.0" layoutY="242.0" prefHeight="17.0" prefWidth="44.0" text="h box" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff3c1f" height="45.0" layoutX="269.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4ff1f" height="45.0" layoutX="369.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#35ff1f" height="45.0" layoutX="473.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
+      <Label layoutX="290.0" layoutY="353.0" text="low" />
+      <Label layoutX="390.0" layoutY="353.0" text="medium" />
+      <Label layoutX="489.0" layoutY="353.0" text="high" />
+   </children>
 </AnchorPane>
